@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/@latte-ui/css@2.0.0-dev.7/dist/latte-ui.css"
+      type="text/css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://font.mili.us/css2?family=jetbrains-mono-variable:ital"
+      type="text/css"
+    />
+    <link rel="stylesheet" href="weatherApp.css" />
+    <title>Today's Weather</title>
+  </head>
+  <body>
+    <main>
+      <div class="canvas">
+        <div class="cloud"></div>
+        <div class="cloud a"></div>
+        <div class="cloud b"></div>
+        <div class="cloud c"></div>
+        <!-- <div class="land">
+          <div class="tree"></div>
+          <div class="tree a"></div>
+          <div class="tree b"></div>
+          <div class="tree c"></div>
+          <div class="tree d"></div>
+        </div> -->
+        <div class="star"></div>
+        <div class="star a"></div>
+        <div class="star b"></div>
+        <div class="star c"></div>
+        <div class="star d"></div>
+        <div class="wind"></div>
+        <div class="swirly-wind">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+        <div class="swirly-wind a"></div>
+        <div class="swirly-wind b"></div>
+        <div class="eclipse">
+          <div class="sun"></div>
+          <div class="sun a"></div>
+          <div class="moon"></div>
+          <div class="moon a"></div>
+        </div>
+      </div>
+      <!-- <div class="bg-clouds">
+        <svg
+          classs="cloud"
+          style="color: rgb(0, 0, 0)"
+          xmlns="http://www.w3.org/2000/svg"
+          width="200"
+          height="200"
+          fill="currentColor"
+          class="bi bi-cloud"
+          viewBox="0 0 16 16"
+        >
+          <path
+            d="M4.406 3.342A5.53 5.53 0 0 1 8 2c2.69 0 4.923 2 5.166 4.579C14.758 6.804 16 8.137 16 9.773 16 11.569 14.502 13 12.687 13H3.781C1.708 13 0 11.366 0 9.318c0-1.763 1.266-3.223 2.942-3.593.143-.863.698-1.723 1.464-2.383zm.653.757c-.757.653-1.153 1.44-1.153 2.056v.448l-.445.049C2.064 6.805 1 7.952 1 9.318 1 10.785 2.23 12 3.781 12h8.906C13.98 12 15 10.988 15 9.773c0-1.216-1.02-2.228-2.313-2.228h-.5v-.5C12.188 4.825 10.328 3 8 3a4.53 4.53 0 0 0-2.941 1.1z"
+            fill="#c7c7c7"
+          ></path>
+        </svg>
+        <svg
+          classs="cloud"
+          style="color: rgb(0, 0, 0)"
+          xmlns="http://www.w3.org/2000/svg"
+          width="200"
+          height="200"
+          fill="currentColor"
+          class="bi bi-cloud"
+          viewBox="0 0 16 16"
+        >
+          <path
+            d="M4.406 3.342A5.53 5.53 0 0 1 8 2c2.69 0 4.923 2 5.166 4.579C14.758 6.804 16 8.137 16 9.773 16 11.569 14.502 13 12.687 13H3.781C1.708 13 0 11.366 0 9.318c0-1.763 1.266-3.223 2.942-3.593.143-.863.698-1.723 1.464-2.383zm.653.757c-.757.653-1.153 1.44-1.153 2.056v.448l-.445.049C2.064 6.805 1 7.952 1 9.318 1 10.785 2.23 12 3.781 12h8.906C13.98 12 15 10.988 15 9.773c0-1.216-1.02-2.228-2.313-2.228h-.5v-.5C12.188 4.825 10.328 3 8 3a4.53 4.53 0 0 0-2.941 1.1z"
+            fill="#c7c7c7"
+          ></path>
+        </svg>
+        <svg
+          classs="cloud"
+          style="color: rgb(0, 0, 0)"
+          xmlns="http://www.w3.org/2000/svg"
+          width="200"
+          height="200"
+          fill="currentColor"
+          class="bi bi-cloud"
+          viewBox="0 0 16 16"
+        >
+          <path
+            d="M4.406 3.342A5.53 5.53 0 0 1 8 2c2.69 0 4.923 2 5.166 4.579C14.758 6.804 16 8.137 16 9.773 16 11.569 14.502 13 12.687 13H3.781C1.708 13 0 11.366 0 9.318c0-1.763 1.266-3.223 2.942-3.593.143-.863.698-1.723 1.464-2.383zm.653.757c-.757.653-1.153 1.44-1.153 2.056v.448l-.445.049C2.064 6.805 1 7.952 1 9.318 1 10.785 2.23 12 3.781 12h8.906C13.98 12 15 10.988 15 9.773c0-1.216-1.02-2.228-2.313-2.228h-.5v-.5C12.188 4.825 10.328 3 8 3a4.53 4.53 0 0 0-2.941 1.1z"
+            fill="#c7c7c7"
+          ></path>
+        </svg>
+        <svg
+          classs="cloud"
+          style="color: rgb(0, 0, 0)"
+          xmlns="http://www.w3.org/2000/svg"
+          width="200"
+          height="200"
+          fill="currentColor"
+          class="bi bi-cloud"
+          viewBox="0 0 16 16"
+        >
+          <path
+            d="M4.406 3.342A5.53 5.53 0 0 1 8 2c2.69 0 4.923 2 5.166 4.579C14.758 6.804 16 8.137 16 9.773 16 11.569 14.502 13 12.687 13H3.781C1.708 13 0 11.366 0 9.318c0-1.763 1.266-3.223 2.942-3.593.143-.863.698-1.723 1.464-2.383zm.653.757c-.757.653-1.153 1.44-1.153 2.056v.448l-.445.049C2.064 6.805 1 7.952 1 9.318 1 10.785 2.23 12 3.781 12h8.906C13.98 12 15 10.988 15 9.773c0-1.216-1.02-2.228-2.313-2.228h-.5v-.5C12.188 4.825 10.328 3 8 3a4.53 4.53 0 0 0-2.941 1.1z"
+            fill="#c7c7c7"
+          ></path>
+        </svg>
+      </div> -->
+
+      <h1>Weather</h1>
+      <div class="input-group input-group-lg">
+        <input
+          type="text"
+          class="form-control"
+          aria-label="Sizing example input"
+          aria-describedby="inputGroup-sizing-lg"
+        />
+        <div class="autocomplete-box"></div>
+        <div class="result-box"></div>
+        <div class="select-city"><i class="fas fa-search"></i></div>
+      </div>
+      <div class="searched-weather"></div>
+      <div class="default-weather"></div>
+    </main>
+  </body>
+  <script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+    crossorigin="anonymous"
+  ></script>
+  <script src="weatherApp.js"></script>
+</html>
+
+<!-- MIT License
+
+Copyright (c) 2020-2022 Bas Milius
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE. -->
