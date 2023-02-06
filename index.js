@@ -142,9 +142,6 @@ const weather = () => {
                         windSpeedCard.append(WindSpeed);
                         feelsLikeCard.append(FeelsLike);
 
-                        card.style.position = "relative";
-                        card.style.bottom = "-50px";
-                        
                         card.append(
                           countryCard,
                           humidityCard,
