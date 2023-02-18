@@ -121,15 +121,19 @@ h1 {
   .land {
     display: none;
   }
-  .main-card .Temperature {
-    top: 2%;
-    right: 20%;
+  .Temperature {
+    position: absolute;
+    right: -110%;
+    bottom: 40%;
+    transform: translate(-50%, -50%);
+    font-size: 30px;
+    height:min-content;
   }
   .autocomplete-box li {
     width: 80%;
   }
   main {
-  overflow: hidden;
+    overflow: hidden;
   }
 }
 
@@ -1277,7 +1281,10 @@ h1 {
 
 .Temperature {
   top: -15px;
-  left: 45px;
+  position: absolute;
+  left: 90%;
+  top: 20%;
+  transform: translate(-50%, -50%);
   position: fixed;
   color: #acc8d7;
   font-size: 65px;
