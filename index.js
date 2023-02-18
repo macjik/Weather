@@ -131,11 +131,13 @@ const weather = () => {
                           `${Math.round(temperature)} ` + " °C";
                         FeelsLike.textContent =
                           `Feels like ${Math.round(feelsLike)} ` + " °C";
-                        Humidity.innerHTML = `Humidity ${humidity}%`; //add the svg here
+                        Humidity.innerHTML = `Humidity: ${humidity}%`; //add the svg here
 
                         card.append(city, time, Weather, temp, weatherIcon);
                         console.log(Weather);
                         searchWeatherBox.append(card);
+
+                        card.style.position = "relative; bottom: 50px";
 
                         countryCard.append(Country);
                         humidityCard.append(Humidity);
@@ -186,8 +188,92 @@ const weather = () => {
                           </svg>`;
                         }
 
+                        if (Weather.textContent === "Mist") {
+                          weatherIcon.innerHTML = `<svg
+                          class = CLOUD'
+                          version="1.1"
+                          xmlns="http://www.w3.org/2000/svg"
+                          xmlns:xlink="http://www.w3.org/1999/xlink"
+                          width="100"
+                          height="100"
+                          viewbox="0 0 64 64">
+                          <defs>
+                              <filter id="blur" width="200%" height="200%">
+                                  <feGaussianBlur in="SourceAlpha" stdDeviation="3"/>
+                                  <feOffset dx="0" dy="4" result="offsetblur"/>
+                                  <feComponentTransfer>
+                                      <feFuncA type="linear" slope="0.05"/>
+                                  </feComponentTransfer>
+                              <feMerge>
+                                <feMergeNode/>
+                                <feMergeNode in="SourceGraphic"/>
+                              </feMerge>
+                              </filter>
+                              </defs>
+                              <g filter="url(#blur)" id="cloudy">
+                                  <g transform="translate(20,10)">
+                                      <g class="am-weather-cloud-1">
+                                          <path d="M47.7,35.4     c0-4.6-3.7-8.2-8.2-8.2c-1,0-1.9,0.2-2.8,0.5c-0.3-3.4-3.1-6.2-6.6-6.2c-3.7,0-6.7,3-6.7,6.7c0,0.8,0.2,1.6,0.4,2.3     c-0.3-0.1-0.7-0.1-1-0.1c-3.7,0-6.7,3-6.7,6.7c0,3.6,2.9,6.6,6.5,6.7l17.2,0C44.2,43.3,47.7,39.8,47.7,35.4z" fill="#91C0F8" stroke="white" stroke-linejoin="round" stroke-width="1.2" transform="translate(-10,-8), scale(0.6)"/>
+                                      </g>
+                                      <g class="am-weather-cloud-2">
+                                          <path d="M47.7,35.4     c0-4.6-3.7-8.2-8.2-8.2c-1,0-1.9,0.2-2.8,0.5c-0.3-3.4-3.1-6.2-6.6-6.2c-3.7,0-6.7,3-6.7,6.7c0,0.8,0.2,1.6,0.4,2.3     c-0.3-0.1-0.7-0.1-1-0.1c-3.7,0-6.7,3-6.7,6.7c0,3.6,2.9,6.6,6.5,6.7l17.2,0C44.2,43.3,47.7,39.8,47.7,35.4z" fill="#57A0EE" stroke="white" stroke-linejoin="round" stroke-width="1.2" transform="translate(-20,-11)"/>
+                                      </g>
+                                  </g>
+                              </g>
+                          </svg>`;
+                        }
+
+                        if (Weather.textContent === "Clear") {
+                          weatherIcon.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="100" height="100" viewbox="0 0 64 64">
+                          <defs>
+                              <filter id="blur" width="200%" height="200%">
+                                  <feGaussianBlur in="SourceAlpha" stdDeviation="3"/>
+                                  <feOffset dx="0" dy="4" result="offsetblur"/>
+                                  <feComponentTransfer>
+                                      <feFuncA type="linear" slope="0.05"/>
+                                  </feComponentTransfer>
+                                  <feMerge> 
+                                      <feMergeNode/>
+                                      <feMergeNode in="SourceGraphic"/> 
+                                  </feMerge>
+                              </filter>                      
+                          </defs>
+                          <g filter="url(#blur)" id="day">
+                              <g transform="translate(32,32)">
+                                  <g class="am-weather-sun am-weather-sun-shiny am-weather-easing-ease-in-out">
+                                      <g>
+                                          <line fill="none" stroke="orange" stroke-linecap="round" stroke-width="2" transform="translate(0,9)" x1="0" x2="0" y1="0" y2="3"/>
+                                      </g>
+                                      <g transform="rotate(45)">
+                                          <line fill="none" stroke="orange" stroke-linecap="round" stroke-width="2" transform="translate(0,9)" x1="0" x2="0" y1="0" y2="3"/>
+                                      </g>
+                                      <g transform="rotate(90)">
+                                          <line fill="none" stroke="orange" stroke-linecap="round" stroke-width="2" transform="translate(0,9)" x1="0" x2="0" y1="0" y2="3"/>
+                                      </g>
+                                      <g transform="rotate(135)">
+                                          <line fill="none" stroke="orange" stroke-linecap="round" stroke-width="2" transform="translate(0,9)" x1="0" x2="0" y1="0" y2="3"/>
+                                      </g>
+                                      <g transform="rotate(180)">
+                                          <line fill="none" stroke="orange" stroke-linecap="round" stroke-width="2" transform="translate(0,9)" x1="0" x2="0" y1="0" y2="3"/>
+                                      </g>
+                                      <g transform="rotate(225)">
+                                          <line fill="none" stroke="orange" stroke-linecap="round" stroke-width="2" transform="translate(0,9)" x1="0" x2="0" y1="0" y2="3"/>
+                                      </g>
+                                      <g transform="rotate(270)">
+                                          <line fill="none" stroke="orange" stroke-linecap="round" stroke-width="2" transform="translate(0,9)" x1="0" x2="0" y1="0" y2="3"/>
+                                      </g>
+                                      <g transform="rotate(315)">
+                                          <line fill="none" stroke="orange" stroke-linecap="round" stroke-width="2" transform="translate(0,9)" x1="0" x2="0" y1="0" y2="3"/>
+                                      </g>
+                                  </g>
+                                  <circle cx="0" cy="0" fill="orange" r="5" stroke="orange" stroke-width="2"/>
+                              </g>
+                          </g>
+                      </svg>`;
+                        }
+
                         if (Weather.textContent === "Rain") {
-                          weatherIcon.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="64" height="64" viewbox="0 0 64 64">
+                          weatherIcon.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="100" height="100" viewbox="0 0 64 64">
                           <defs>
                               <filter id="blur" width="200%" height="200%">
                                   <feGaussianBlur in="SourceAlpha" stdDeviation="3"/>
@@ -218,7 +304,7 @@ const weather = () => {
                         }
 
                         if (Weather.textContent === "Snow") {
-                          weatherIcon.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="64" height="64" viewbox="0 0 64 64">
+                          weatherIcon.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="100" height="100" viewbox="0 0 64 64">
                           <defs>
                               <filter id="blur" width="200%" height="200%">
                                   <feGaussianBlur in="SourceAlpha" stdDeviation="3"/>
@@ -267,7 +353,7 @@ const weather = () => {
                         }
 
                         if (Weather.textContent === "Thunder") {
-                          weatherIcon.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="64" height="64" viewbox="0 0 64 64">
+                          weatherIcon.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="100" height="100" viewbox="0 0 64 64">
                           <defs>
                               <filter id="blur" width="200%" height="200%">
                                   <feGaussianBlur in="SourceAlpha" stdDeviation="3"/>
@@ -445,8 +531,92 @@ const weather = () => {
                           </svg>`;
                         }
 
+                        if (Weather.textContent === "Mist") {
+                          weatherIcon.innerHTML = `<svg
+                          class = CLOUD'
+                          version="1.1"
+                          xmlns="http://www.w3.org/2000/svg"
+                          xmlns:xlink="http://www.w3.org/1999/xlink"
+                          width="100"
+                          height="100"
+                          viewbox="0 0 64 64">
+                          <defs>
+                              <filter id="blur" width="200%" height="200%">
+                                  <feGaussianBlur in="SourceAlpha" stdDeviation="3"/>
+                                  <feOffset dx="0" dy="4" result="offsetblur"/>
+                                  <feComponentTransfer>
+                                      <feFuncA type="linear" slope="0.05"/>
+                                  </feComponentTransfer>
+                              <feMerge>
+                                <feMergeNode/>
+                                <feMergeNode in="SourceGraphic"/>
+                              </feMerge>
+                              </filter>
+                              </defs>
+                              <g filter="url(#blur)" id="cloudy">
+                                  <g transform="translate(20,10)">
+                                      <g class="am-weather-cloud-1">
+                                          <path d="M47.7,35.4     c0-4.6-3.7-8.2-8.2-8.2c-1,0-1.9,0.2-2.8,0.5c-0.3-3.4-3.1-6.2-6.6-6.2c-3.7,0-6.7,3-6.7,6.7c0,0.8,0.2,1.6,0.4,2.3     c-0.3-0.1-0.7-0.1-1-0.1c-3.7,0-6.7,3-6.7,6.7c0,3.6,2.9,6.6,6.5,6.7l17.2,0C44.2,43.3,47.7,39.8,47.7,35.4z" fill="#91C0F8" stroke="white" stroke-linejoin="round" stroke-width="1.2" transform="translate(-10,-8), scale(0.6)"/>
+                                      </g>
+                                      <g class="am-weather-cloud-2">
+                                          <path d="M47.7,35.4     c0-4.6-3.7-8.2-8.2-8.2c-1,0-1.9,0.2-2.8,0.5c-0.3-3.4-3.1-6.2-6.6-6.2c-3.7,0-6.7,3-6.7,6.7c0,0.8,0.2,1.6,0.4,2.3     c-0.3-0.1-0.7-0.1-1-0.1c-3.7,0-6.7,3-6.7,6.7c0,3.6,2.9,6.6,6.5,6.7l17.2,0C44.2,43.3,47.7,39.8,47.7,35.4z" fill="#57A0EE" stroke="white" stroke-linejoin="round" stroke-width="1.2" transform="translate(-20,-11)"/>
+                                      </g>
+                                  </g>
+                              </g>
+                          </svg>`;
+                        }
+
+                        if (Weather.textContent === "Clear") {
+                          weatherIcon.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="100" height="100" viewbox="0 0 64 64">
+                          <defs>
+                              <filter id="blur" width="200%" height="200%">
+                                  <feGaussianBlur in="SourceAlpha" stdDeviation="3"/>
+                                  <feOffset dx="0" dy="4" result="offsetblur"/>
+                                  <feComponentTransfer>
+                                      <feFuncA type="linear" slope="0.05"/>
+                                  </feComponentTransfer>
+                                  <feMerge> 
+                                      <feMergeNode/>
+                                      <feMergeNode in="SourceGraphic"/> 
+                                  </feMerge>
+                              </filter>                      
+                          </defs>
+                          <g filter="url(#blur)" id="day">
+                              <g transform="translate(32,32)">
+                                  <g class="am-weather-sun am-weather-sun-shiny am-weather-easing-ease-in-out">
+                                      <g>
+                                          <line fill="none" stroke="orange" stroke-linecap="round" stroke-width="2" transform="translate(0,9)" x1="0" x2="0" y1="0" y2="3"/>
+                                      </g>
+                                      <g transform="rotate(45)">
+                                          <line fill="none" stroke="orange" stroke-linecap="round" stroke-width="2" transform="translate(0,9)" x1="0" x2="0" y1="0" y2="3"/>
+                                      </g>
+                                      <g transform="rotate(90)">
+                                          <line fill="none" stroke="orange" stroke-linecap="round" stroke-width="2" transform="translate(0,9)" x1="0" x2="0" y1="0" y2="3"/>
+                                      </g>
+                                      <g transform="rotate(135)">
+                                          <line fill="none" stroke="orange" stroke-linecap="round" stroke-width="2" transform="translate(0,9)" x1="0" x2="0" y1="0" y2="3"/>
+                                      </g>
+                                      <g transform="rotate(180)">
+                                          <line fill="none" stroke="orange" stroke-linecap="round" stroke-width="2" transform="translate(0,9)" x1="0" x2="0" y1="0" y2="3"/>
+                                      </g>
+                                      <g transform="rotate(225)">
+                                          <line fill="none" stroke="orange" stroke-linecap="round" stroke-width="2" transform="translate(0,9)" x1="0" x2="0" y1="0" y2="3"/>
+                                      </g>
+                                      <g transform="rotate(270)">
+                                          <line fill="none" stroke="orange" stroke-linecap="round" stroke-width="2" transform="translate(0,9)" x1="0" x2="0" y1="0" y2="3"/>
+                                      </g>
+                                      <g transform="rotate(315)">
+                                          <line fill="none" stroke="orange" stroke-linecap="round" stroke-width="2" transform="translate(0,9)" x1="0" x2="0" y1="0" y2="3"/>
+                                      </g>
+                                  </g>
+                                  <circle cx="0" cy="0" fill="orange" r="5" stroke="orange" stroke-width="2"/>
+                              </g>
+                          </g>
+                      </svg>`;
+                        }
+
                         if (Weather.textContent === "Rain") {
-                          weatherIcon.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="64" height="64" viewbox="0 0 64 64">
+                          weatherIcon.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="100" height="100" viewbox="0 0 64 64">
                           <defs>
                               <filter id="blur" width="200%" height="200%">
                                   <feGaussianBlur in="SourceAlpha" stdDeviation="3"/>
@@ -477,7 +647,7 @@ const weather = () => {
                         }
 
                         if (Weather.textContent === "Snow") {
-                          weatherIcon.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="64" height="64" viewbox="0 0 64 64">
+                          weatherIcon.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="100" height="100" viewbox="0 0 64 64">
                           <defs>
                               <filter id="blur" width="200%" height="200%">
                                   <feGaussianBlur in="SourceAlpha" stdDeviation="3"/>
@@ -526,7 +696,7 @@ const weather = () => {
                         }
 
                         if (Weather.textContent === "Thunder") {
-                          weatherIcon.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="64" height="64" viewbox="0 0 64 64">
+                          weatherIcon.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="100" height="100" viewbox="0 0 64 64">
                           <defs>
                               <filter id="blur" width="200%" height="200%">
                                   <feGaussianBlur in="SourceAlpha" stdDeviation="3"/>
@@ -855,79 +1025,3 @@ const weather = () => {
   // tashkentWeather();
 };
 weather();
-
-// const forStyling = () => {
-//   fetch(
-//     `https://api.openweathermap.org/data/2.5/weather?q=london&appid=${apiKey}&units=metric`
-//   ) //putting it before the condition would make more sense
-//     .then((response) => response.json())
-//     .then((data) => {
-//       console.log(data);
-//       const cityName = data.name;
-//       const cityTimeZone = data.timezone;
-//       const clouds = data.clouds;
-//       const weather = data.weather[0].main;
-//       const countryName = data.sys.country;
-//       const windSpeed = data.wind.speed;
-//       const temperature = data.main.temp;
-//       const feelsLike = data.main.feels_like;
-//       const humidity = data.main.humidity;
-//       city.textContent = cityName;
-//       Country.textContent = countryName;
-//       time.textContent = cityTimeZone;
-//       Weather.innerHTML = weather;
-//       WindSpeed.textContent = windSpeed;
-//       temp.textContent = temperature;
-//       FeelsLike.textContent = feelsLike;
-//       Humidity.textContent = humidity;
-//       // Clouds.innerHTML = clouds
-//       card.append(city, time, Weather, temp, weatherIcon);
-//       console.log(Weather);
-//       searchWeatherBox.append(card);
-
-//       countryCard.append(Country);
-//       humidityCard.append(Humidity);
-//       windSpeedCard.append(WindSpeed);
-//       feelsLikeCard.append(FeelsLike);
-
-//       card.append(countryCard, humidityCard, windSpeedCard, feelsLikeCard);
-//       searchWeatherBox.append(card)
-
-//       if (Weather.textContent === "Clouds") {
-//         weatherIcon.innerHTML = `<svg
-//           class = input-Cloud'
-//           version="1.1"
-//           xmlns="http://www.w3.org/2000/svg"
-//           xmlns:xlink="http://www.w3.org/1999/xlink"
-//           width="100"
-//           height="100"
-//           style='position: relative; bottom: 100px;'
-//           viewbox="0 0 64 64">
-//           <defs>
-//               <filter id="blur" width="200%" height="200%">
-//                   <feGaussianBlur in="SourceAlpha" stdDeviation="3"/>
-//                   <feOffset dx="0" dy="4" result="offsetblur"/>
-//                   <feComponentTransfer>
-//                       <feFuncA type="linear" slope="0.05"/>
-//                   </feComponentTransfer>
-//               <feMerge>
-//                 <feMergeNode/>
-//                 <feMergeNode in="SourceGraphic"/>
-//               </feMerge>
-//               </filter>
-//               </defs>
-//               <g filter="url(#blur)" id="cloudy">
-//                   <g transform="translate(20,10)">
-//                       <g class="am-weather-cloud-1">
-//                           <path d="M47.7,35.4     c0-4.6-3.7-8.2-8.2-8.2c-1,0-1.9,0.2-2.8,0.5c-0.3-3.4-3.1-6.2-6.6-6.2c-3.7,0-6.7,3-6.7,6.7c0,0.8,0.2,1.6,0.4,2.3     c-0.3-0.1-0.7-0.1-1-0.1c-3.7,0-6.7,3-6.7,6.7c0,3.6,2.9,6.6,6.5,6.7l17.2,0C44.2,43.3,47.7,39.8,47.7,35.4z" fill="#91C0F8" stroke="white" stroke-linejoin="round" stroke-width="1.2" transform="translate(-10,-8), scale(0.6)"/>
-//                       </g>
-//                       <g class="am-weather-cloud-2">
-//                           <path d="M47.7,35.4     c0-4.6-3.7-8.2-8.2-8.2c-1,0-1.9,0.2-2.8,0.5c-0.3-3.4-3.1-6.2-6.6-6.2c-3.7,0-6.7,3-6.7,6.7c0,0.8,0.2,1.6,0.4,2.3     c-0.3-0.1-0.7-0.1-1-0.1c-3.7,0-6.7,3-6.7,6.7c0,3.6,2.9,6.6,6.5,6.7l17.2,0C44.2,43.3,47.7,39.8,47.7,35.4z" fill="#57A0EE" stroke="white" stroke-linejoin="round" stroke-width="1.2" transform="translate(-20,-11)"/>
-//                       </g>
-//                   </g>
-//               </g>
-//           </svg>`;
-//       }
-//     });
-// };
-// forStyling();
