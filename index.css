@@ -1,6 +1,6 @@
 html {
   position: relative;
-  overflow: hidden;
+  background-color: #0d5bc1;
 }
 
 body {
@@ -13,45 +13,39 @@ main {
 }
 
 h1 {
-  position: relative;
-  left: 900px;
   font-family: fantasy;
   color: #a7a4a3;
   font-size: 70px;
-  /* color: rgb(230, 179, 179);
-                         text-shadow:
-                             0 0 7px #fff,
-                             0 0 10px #fff,
-                             0 0 21px #fff,
-                             0 0 42px #0fa,
-                             0 0 82px #0fa,
-                             0 0 92px #0fa,
-                             0 0 102px #0fa,
-                             0 0 151px #0fa; */
+  text-align: center;
+  position: relative;
+  top: 10px;
+  left: 260px;
+}
+
+.weather-title-container {
+  position: absolute;
+  top: 30px;
+  border-radius: 25px;
+  width: 800px;
+  right: 600px;
+  height: 300px;
+  background: linear-gradient(to right, blue, rgb(64, 145, 231));
+  display: flex;
+  opacity: 0.9;
 }
 
 .input-group {
-  top: 200px;
+  top: 150px;
   height: 40px;
   width: 400px;
   position: absolute;
-  top: 15%;
   left: 50%;
   transform: translate(-50%, -50%);
   display: flex;
   justify-content: center;
   align-items: center;
-  /* display: grid; */
-  /* right: 20rem; */
-  opacity: 0.7;
   background-color: #acc8d7;
   border-radius: 25px;
-}
-
-.default-weather {
-  position: relative;
-  width: 400px;
-  left: 800px;
 }
 
 @-webkit-keyframes run {
@@ -90,50 +84,305 @@ h1 {
 }
 
 .main-card {
-  opacity: 0.7;
   background: linear-gradient(rgb(11, 42, 137), rgb(0, 46, 161) 50%);
   width: 300px;
   height: 400px;
   flex-direction: row;
   row-gap: 15px;
-  /* position: relative;
-  left: 250px;
-  bottom: 250px; */
   border-radius: 20px;
 }
 
-@media screen and (max-width: 500px) {
-  .input-group {
-    width: 400px;
+@media only screen and (max-width: 768px) {
+  html {
+    margin-bottom: 200px;
+    overflow: scroll;
   }
-  .main-card {
+
+  div.default-weather {
+    display: none;
+  }
+
+  div.searched-weather {
+    position: absolute;
+    width: 250px;
+    top: 200px;
+    margin-top: 300px;
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  div.weather-title-container {
     width: 300px;
-    height: 400px;
-    position: relative;
-    right: 50px;
-    top: 10px;
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
   }
-  .searched-weather {
-    position: relative;
-    top: 40px;
-    height: 350px;
+
+  .input-group {
+    width: 200px;
+    height: 20px;
   }
+
+  .autocomplete-box {
+    position: relative;
+    top: -15px;
+  }
+
+  h1 {
+    font-size: 40px;
+    position: absolute;
+    top: 50px;
+    left: 80px;
+  }
+
+  input {
+    position: absolute;
+    bottom: 12px;
+    font-size: 10px;
+    height: 40px;
+  }
+
+  div.card-deck.main-card {
+    width: 250px;
+    height: 300px;
+    margin-left: 130px;
+    margin-right: 10px;
+  }
+
   .land {
     display: none;
   }
-  .Temperature {
+
+  h6.Temperature {
+    top: 42px;
+    margin-left: 65px;
+    font-size: 50px;
+    height: min-content;
+  }
+
+  h6.country,
+  h6.humidity,
+  h6.wind-speed,
+  h6.temp-feel {
+    font-size: 20px;
     position: absolute;
-    right: -110%;
-    bottom: 40%;
-    transform: translate(-50%, -50%);
-    font-size: 30px;
-    height:min-content;
+    top: 5px;
   }
-  .autocomplete-box li {
-    width: 80%;
+
+  div.card.country-card,
+  div.card.humidity-card,
+  div.card.windSpeed-card,
+  div.card.feelsLike-card {
+    height: 35px;
+    width: 220px;
+    position: relative;
+    left: 16px;
   }
-  main {
-    overflow: hidden;
+}
+
+@media only screen and (min-width: 769px) {
+  .default-weather {
+    display: flex;
+    position: absolute;
+    height: 200px;
+    margin-top: 350px;
+    gap: 10px;
+    width: 600px;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    text-overflow: ellipsis;
+  }
+
+  .default-main-card {
+    height: 150px;
+    width: 200px;
+    background: linear-gradient(rgb(11, 42, 137), rgb(0, 46, 161) 50%);
+    position: relative;
+    right: 0;
+    left: 0;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    border-radius: 10px;
+  }
+
+  .default-Temperature {
+    text-align: center;
+    font-size: 25px;
+    color: #373737;
+  }
+
+  div.default-weather-icon svg {
+    position: relative;
+    right: 12px;
+    bottom: 30px;
+  }
+
+  .default-City {
+    text-align: center;
+    font-size: 12px;
+    position: absolute;
+    bottom: 0px;
+    width: 99%;
+    margin-right: auto;
+    margin-left: auto;
+    right: 0;
+    left: 0;
+    color: #373737;
+    width: min-content;
+  }
+
+  .default-wind-speed {
+    font-size: 12px;
+  }
+
+  .default-country {
+    font-size: 12px;
+  }
+
+  .default-temp-feel {
+    font-size: 12px;
+  }
+
+  .default-humidity {
+    font-size: 12px;
+  }
+
+  .default-card {
+    position: relative;
+    background-color: rgb(43, 195, 206);
+    height: 140px;
+    width: 70px;
+    margin-top: 4px;
+    margin-left: 5px;
+    border-radius: 5px;
+    margin-bottom: 0;
+  }
+
+  .default-country-card {
+    position: absolute;
+    margin-left: 75px;
+    background-color: rgb(43, 195, 206);
+    width: 110px;
+    border-radius: 5px;
+    bottom: 110px;
+  }
+
+  .default-humidity-card {
+    position: absolute;
+    margin-left: 75px;
+    background-color: rgb(43, 195, 206);
+    width: 110px;
+    border-radius: 5px;
+    bottom: 0px;
+  }
+
+  .default-windSpeed-card {
+    position: absolute;
+    margin-left: 75px;
+    background-color: rgb(43, 195, 206);
+    width: 110px;
+    border-radius: 5px;
+    bottom: 37px;
+  }
+
+  .default-feelsLike-card {
+    position: absolute;
+    margin-left: 75px;
+    background-color: rgb(43, 195, 206);
+    width: 110px;
+    border-radius: 5px;
+    bottom: 73px;
+  }
+
+  div.searched-weather {
+    position: absolute;
+    width: 250px;
+    top: 200px;
+    margin-top: 300px;
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  div.weather-title-container {
+    width: 600px;
+    height: 200px;
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .input-group {
+    width: 300px;
+    height: 25px;
+  }
+
+  .autocomplete-box {
+    position: relative;
+    top: -15px;
+  }
+
+  h1 {
+    font-size: 40px;
+    position: absolute;
+    top: 50px;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  input {
+    position: absolute;
+    bottom: 12px;
+    font-size: 10px;
+    height: 50px;
+  }
+
+  div.card-deck.main-card {
+    width: 250px;
+    height: 300px;
+    margin-top: -70px;
+    margin-left: 130px;
+    margin-right: 10px;
+  }
+
+  h6.Temperature {
+    margin-top: -55px;
+    margin-left: 65px;
+    font-size: 50px;
+    height: min-content;
+  }
+
+  h6.country,
+  h6.humidity,
+  h6.wind-speed,
+  h6.temp-feel {
+    font-size: 20px;
+    position: absolute;
+    top: 5px;
+  }
+
+  div.card.country-card,
+  div.card.humidity-card,
+  div.card.windSpeed-card,
+  div.card.feelsLike-card {
+    height: 35px;
+    width: 220px;
+    position: relative;
+    left: 16px;
   }
 }
 
@@ -169,12 +418,14 @@ h1 {
   height: 60px;
   width: 90%;
   left: 15px;
-  background: linear-gradient(rgb(35 97 205), rgb(59, 99, 179));
+  background: linear-gradient(rgb(24, 69, 146), rgb(59, 99, 179));
   bottom: 60px;
 }
 
 .autocomplete-box {
-  width: 1200px;
+  position: relative;
+  bottom: 5px;
+  width: 1300px;
   border-radius: 15px;
 }
 
@@ -184,6 +435,7 @@ h1 {
 }
 .input-group .autocomplete-box {
   padding: 0;
+  margin-bottom: 10px;
   pointer-events: none;
   background-color: #70c4c6;
   max-height: 120px;
@@ -209,24 +461,20 @@ h1 {
   text-align: left;
 }
 .autocomplete-box li:hover {
-  background: #efefef;
-  transition: 0.5s;
+  background: #a8dd15;
+  transition: 1.5s;
+  border-radius: 25px;
 }
 
 .searched-weather {
   position: absolute;
   width: 200px;
   height: 200px;
-  top: 50%;
+  top: 60%;
   left: 50%;
   transform: translate(-50%, -50%);
-  /* top: -500px; */
-
 }
 
-/*body {
-                                            position: relative;
-                     }*/
 .weather-bg {
   width: 100%;
   height: 100vh;
@@ -245,7 +493,6 @@ h1 {
 .eclipse {
   width: 600px;
   height: 600px;
-  /*border: 1px solid #000;*/
   position: absolute;
   left: 60%;
   top: 20%;
@@ -937,10 +1184,10 @@ h1 {
   -moz-animation-iteration-count: infinite;
   -ms-animation-iteration-count: infinite;
   animation-iteration-count: infinite;
-  -webkit-transform-origin: 12.5px 15.15px 0; /* TODO FF CENTER ISSUE */
-  -moz-transform-origin: 12.5px 15.15px 0; /* TODO FF CENTER ISSUE */
-  -ms-transform-origin: 12.5px 15.15px 0; /* TODO FF CENTER ISSUE */
-  transform-origin: 12.5px 15.15px 0; /* TODO FF CENTER ISSUE */
+  -webkit-transform-origin: 12.5px 15.15px 0;
+  -moz-transform-origin: 12.5px 15.15px 0;
+  -ms-transform-origin: 12.5px 15.15px 0;
+  transform-origin: 12.5px 15.15px 0;
 }
 
 @keyframes am-weather-moon-star-1 {
