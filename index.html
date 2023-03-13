@@ -23,19 +23,19 @@
     <title>Today's Weather</title>
   </head>
   <body>
-    <main class="row-12">
+    <main class="row-12 col">
       <div class="weather-bg col-12">
         <div class="cloud"></div>
         <div class="cloud a"></div>
         <div class="cloud b"></div>
         <div class="cloud c"></div>
-         <div class="land">
+        <!-- <div class="land">
           <div class="tree"></div>
           <div class="tree a"></div>
           <div class="tree b"></div>
           <div class="tree c"></div>
           <div class="tree d"></div>
-        </div> 
+        </div> -->
         <div class="star"></div>
         <div class="star a"></div>
         <div class="star b"></div>
@@ -57,20 +57,23 @@
         </div>
       </div>
 
-
-      <h1>Weather</h1>
-      <div class="input-group input-group-lg col-12 rounded">
-        <input
-          type="text"
-          class="form-control "
-          aria-label="Sizing example input"
-          aria-describedby="inputGroup-sizing-lg"
-        />
-        <div class="autocomplete-box"></div>
-        <div class="result-box"></div>
-        <div class="select-city"><i class="fas fa-search"></i></div>
+      <div class="weather-title-container">
+        <h1>Weather</h1>
+        <div class="input-group input-group-lg row">
+          <input
+            type="text"
+            class="form-control"
+            aria-label="Sizing example input"
+            aria-describedby="inputGroup-sizing-lg"
+          />
+          <div class="autocomplete-box rounded-3"></div>
+          <div class="result-box col-12"></div>
+          <div class="select-city" style="border-radius: 25px">
+            <i class="fas fa-search"></i>
+          </div>
+        </div>
       </div>
-      <div class="searched-weather"></div>
+      <div class="default-weather"></div>
     </main>
   </body>
   <script
@@ -78,5 +81,5 @@
     integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
     crossorigin="anonymous"
   ></script>
-  <script src="index.js"></script>
+  <script src="index.js" type="module"></script>
 </html>
